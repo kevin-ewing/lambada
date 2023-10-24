@@ -2,6 +2,6 @@
   :description "Example lambada project."
   :dependencies [[org.clojure/clojure "1.11.1"]
                  [org.clojure/data.json "2.4.0"]
-                 [org.clojars.kevin-ewing/lambada "0.1.1-SNAPSHOT"]]
+                 [org.clojars.kevin-ewing/lambada "0.1.1"]]
   :profiles {:uberjar {:aot :all}}
   :uberjar-name "my-lambda-project.jar")
