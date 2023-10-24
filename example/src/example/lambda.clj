@@ -1,16 +1,20 @@
 (ns example.lambda
-  (:require [uswitch.lambada.core :refer [deflambdafn]]
+  (:require [lambada.core :refer [deflambdafn]]
             [clojure.data.json :as json]
             [clojure.java.io :as io]))
 
-(defn handle-event
-  [event]
-  (println "Got the following event: " (pr-str event))
-  {:status "ok"})
+(ns example.lambda
+  (:require [lambada.core :refer [deflambdafn]]))
+
+(defn do-something
+  [event-map]
+  (println "This will show up in the lambda log")
+  {:status 200
+   :body "Hello, World!"})
 
 (deflambdafn example.lambda.MyLambdaFn
   [in out ctx]
   (let [event (json/read (io/reader in))
-        res (handle-event event)]
+        response (do-something event)]
     (with-open [w (io/writer out)]
-      (json/write res w))))
+      (json/write response w))))

@@ -1,5 +1,6 @@
-(ns uswitch.lambada.core
-  (:import [com.amazonaws.services.lambda.runtime RequestStreamHandler]))
+(ns lambada.core
+  (:import [com.amazonaws.services.lambda.runtime RequestStreamHandler])
+  (:require [clojure.tools.macro :refer [declare]]))
 
 (defmacro deflambdafn
   "Create a named class that can be invoked as a AWS Lambda function."
@@ -8,6 +9,7 @@
   (let [prefix (gensym)
         handleRequestMethod (symbol (str prefix "handleRequest"))]
     `(do
+       (declare ~@args)
        (gen-class
         :name ~name
         :prefix ~prefix

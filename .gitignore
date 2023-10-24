@@ -10,3 +10,9 @@ pom.xml.asc
 .hgignore
 .hg/
 /example/target
+*.clj-kondo
+*.lsp
+*.calva
+*.vscode
+*.nrepl_port
+*.DS_Store
