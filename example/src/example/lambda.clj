@@ -3,9 +3,6 @@
             [clojure.data.json :as json]
             [clojure.java.io :as io]))
 
-(ns example.lambda
-  (:require [lambada.core :refer [deflambdafn]]))
-
 (defn do-something
   [event-map]
   (println "This will show up in the lambda log")
