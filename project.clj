@@ -1,4 +1,4 @@
-(def version "0.1.1")
+(def version "0.1.2")
 
 (defproject org.clojars.kevin-ewing/lambada version
   :description "The messy parts for running Clojure on AWS Lambda."
